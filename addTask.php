@@ -26,9 +26,9 @@
             <div class="textbox">
                 <p>Important task? </p>
                 <div class="rad-container">
-                    <input type="radio" id="importantY" name="important" value="Important">
+                    <input type="radio" id="importantY" name="important" value="Important" class="rad">
                     <label for="importantY">Yes</label><br>
-                    <input type="radio" id="importantN" name="important" value="NotImportant">
+                    <input type="radio" id="importantN" name="important" value="NotImportant" class="rad">
                     <label for="importantN">No</label><br>
                 </div>
             </div>

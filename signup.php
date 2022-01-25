@@ -15,18 +15,49 @@
     <div class="login">
         <h2>Sign Up</h2>
         <form action="includes/signup.inc.php" method="POST">
-            <div class="textbox">
-                <p>First name: </p>
-                <input type="text" name="fname" placeholder="Enter your given name">
-            </div>
-            <div class="textbox">
-                <p>Last name: </p>
-                <input type="text" name="lname" placeholder="Enter your surname">
-            </div>
-            <div class="textbox">
-                <p>E-mail: </p>
-                <input type="text" name="email" placeholder="Enter your e-mail">
-            </div>
+            <?php
+                if (isset($_GET['fname'])) {
+                    $first = $_GET['fname'];
+                    echo    '<div class="textbox">
+                                <p>First name: </p> 
+                                <input type="text" name="fname" placeholder="Enter your given name" value="'.$first.'">
+                            </div>';
+                }
+                else {
+                    echo    '<div class="textbox">
+                                <p>First name: </p> 
+                                <input type="text" name="fname" placeholder="Enter your given name">
+                            </div>';
+                }
+
+                if (isset($_GET['lname'])) {
+                    $last = $_GET['lname'];
+                    echo    '<div class="textbox">
+                                <p>Last name: </p> 
+                                <input type="text" name="lname" placeholder="Enter your surname" value="'.$last.'">
+                            </div>';
+                }
+                else {
+                    echo    '<div class="textbox">
+                                <p>Last name: </p> 
+                                <input type="text" name="lname" placeholder="Enter your surname">
+                            </div>';
+                }
+
+                if (isset($_GET['email'])) {
+                    $email = $_GET['email'];
+                    echo    '<div class="textbox">
+                                <p>E-mail: </p>
+                                <input type="text" name="email" placeholder="Enter your e-mail" value="'.$email.'">
+                            </div>';
+                }
+                else {
+                    echo    '<div class="textbox">
+                                <p>E-mail: </p>
+                                <input type="text" name="email" placeholder="Enter your e-mail">
+                            </div>';
+                }
+            ?>
             <div class="textbox">
                 <p>Password: </p>
                 <input type="password" name="pwd" placeholder="Enter your password">
@@ -38,6 +69,29 @@
             <button type="submit" name="submit">Sign Up</button>
         </form>
         <p><a href="login.php">Login</a></p>
+        
+        <?php
+            if(!isset($_GET['signup'])) {
+                exit();
+            } 
+            else {
+                $signupCheck = $_GET['signup'];
+
+                if ($signupCheck == "empty") {
+                    echo "<p style='color: red; margin-top: 20px;'>Please fill in all fields</p>";
+                    exit();
+                } elseif ($signupCheck == "char") {
+                    echo "<p style='color: red; margin-top: 20px;'>Invalid name</p>";
+                    exit();
+                } elseif ($signupCheck == "email") {
+                    echo "<p style='color: red; margin-top: 20px;'>Invalid email</p>";
+                    exit();
+                } elseif ($signupCheck == "taken") {
+                    echo "<p style='color: red; margin-top: 20px;'>User already exists with that email</p>";
+                    exit();
+                }
+            }
+        ?>
     </div>
 </body>
 </html>

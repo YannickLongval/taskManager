@@ -15,10 +15,21 @@
     <div class="login">
         <h2>Login</h2>
         <form action="includes/login.inc.php" method="POST">
-            <div class="textbox">
-                <p>E-mail: </p>
-                <input type="text" name="email" placeholder="Enter your e-mail">
-            </div>
+            <?php
+                if (isset($_GET['email'])) {
+                    $email = $_GET['email'];
+                    echo    '<div class="textbox">
+                                <p>E-mail: </p>
+                                <input type="text" name="email" placeholder="Enter your e-mail" value="'.$email.'">
+                            </div>';
+                }
+                else {
+                    echo    '<div class="textbox">
+                                <p>E-mail: </p>
+                                <input type="text" name="email" placeholder="Enter your e-mail">
+                            </div>';
+                }
+            ?>
             <div class="textbox">
                 <p>Password: </p>
                 <input type="password" name="pwd" placeholder="Enter your password">
@@ -26,6 +37,26 @@
             <button type="submit" name="submit">Login</button>
         </form>
         <p>Don't have an account? <a href="signup.php">Sign up</a></p>
+
+        <?php
+            if(!isset($_GET['login'])) {
+                exit();
+            } 
+            else {
+                $loginCheck = $_GET['login'];
+
+                if ($loginCheck == "empty") {
+                    echo "<p style='color: red; margin-top: 20px;'>Please fill in all fields</p>";
+                    exit();
+                } elseif ($loginCheck == "email") {
+                    echo "<p style='color: red; margin-top: 20px;'>Invalid email</p>";
+                    exit();
+                } elseif ($loginCheck == "error") {
+                    echo "<p style='color: red; margin-top: 20px;'>Invalid email or password</p>";
+                    exit();
+                }
+            }
+        ?>
     </div>
 </body>
 </html>

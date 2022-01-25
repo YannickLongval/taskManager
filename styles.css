@@ -1,0 +1,45 @@
+body {
+    width: 100%;
+    margin: 0;
+}
+
+.login {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+.textbox {
+    width: 350px;
+    height: 35px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+p {
+    font-size: 20px;
+    line-height: 35px;
+    margin: 0;
+}
+
+button {
+    width: 80px;
+    height: 40px;
+    font-size: 15px;
+}

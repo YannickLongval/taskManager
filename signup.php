@@ -69,7 +69,7 @@
             <button type="submit" name="submit">Sign Up</button>
         </form>
         <p><a href="login.php">Login</a></p>
-        
+
         <?php
             if(!isset($_GET['signup'])) {
                 exit();
@@ -88,6 +88,9 @@
                     exit();
                 } elseif ($signupCheck == "taken") {
                     echo "<p style='color: red; margin-top: 20px;'>User already exists with that email</p>";
+                    exit();
+                } elseif ($signupCheck == "match") {
+                    echo "<p style='color: red; margin-top: 20px;'>Passwords do not match</p>";
                     exit();
                 }
             }

@@ -17,7 +17,7 @@
         include_once 'includes/header.inc.php';
     ?>
     
-    <div class="login">
+    <div class="forms">
         <h2>Login</h2>
         <form action="includes/login.inc.php" method="POST">
             <?php

@@ -15,10 +15,10 @@
     <?php
         include_once 'includes/header.inc.php';
     ?>
-    <div class="login">
+    <div class="forms">
         <h2>Add Task</h2>
         <?php
-            echo '<form action="includes/add.inc.php?email='.$_GET['email'].'" method="POST">';
+            echo '<form action="includes/add.inc.php?loggedin=success&email='.$_GET['email'].'" method="POST">';
         ?>
             <div class="textbox">
                 <p>Task name: </p>

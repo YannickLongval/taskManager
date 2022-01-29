@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="viewTask_styles.css">
-    <title>Document</title>
+    <title>View Task</title>
 </head>
 <body>
 
@@ -33,7 +33,12 @@
 
                 if ($resultCheck > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div class=task><p>'.$row['task_title'].'</p> <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a></div>';
+                        echo '<div class=task><p>'.$row['task_title'].'</p> 
+                                <div class="options">
+                                    <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a>
+                                    <a href="editTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'&task_title='.$row['task_title'].'&is_important='.$row['is_important'].'&is_urgent='.$row['is_urgent'].'">EDIT</a>
+                                </div>
+                            </div>';
                     }
                 }
             ?>
@@ -49,7 +54,12 @@
 
                 if ($resultCheck > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div class=task><p>'.$row['task_title'].'</p> <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a></div>';
+                        echo '<div class=task><p>'.$row['task_title'].'</p> 
+                                <div class="options">
+                                    <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a>
+                                    <a href="editTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'&task_title='.$row['task_title'].'&is_important='.$row['is_important'].'&is_urgent='.$row['is_urgent'].'">EDIT</a>
+                                </div>
+                            </div>';
                     }
                 }
             ?>
@@ -65,7 +75,12 @@
 
                 if ($resultCheck > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div class=task><p>'.$row['task_title'].'</p> <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a></div>';
+                        echo '<div class=task><p>'.$row['task_title'].'</p> 
+                                <div class="options">
+                                    <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a>
+                                    <a href="editTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'&task_title='.$row['task_title'].'&is_important='.$row['is_important'].'&is_urgent='.$row['is_urgent'].'">EDIT</a>
+                                </div>
+                            </div>';
                     }
                 }
             ?>
@@ -81,7 +96,12 @@
 
                 if ($resultCheck > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div class=task><p>'.$row['task_title'].'</p> <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a></div>';
+                        echo '<div class=task><p>'.$row['task_title'].'</p> 
+                                <div class="options">
+                                    <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a>
+                                    <a href="editTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'&task_title='.$row['task_title'].'&is_important='.$row['is_important'].'&is_urgent='.$row['is_urgent'].'">EDIT</a>
+                                </div>
+                            </div>';
                     }
                 }
             ?>

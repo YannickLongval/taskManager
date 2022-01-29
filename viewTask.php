@@ -17,6 +17,12 @@
     ?>
 
     <div class="task-section-container">
+        <?php
+            echo '<form action="addTask.php?loggedin=success&email='.$_GET['email'].'" method="POST">';
+        ?>
+            <button type="submit" class="add"><p class="plus">+</p></button>
+        </form>
+        
         <div class="task-section">
             <h2>IMPORTANT AND<br>URGENT</h2>
             <?php
@@ -27,7 +33,7 @@
 
                 if ($resultCheck > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<p>'.$row['task_title'].'</p>';
+                        echo '<div class=task><p>'.$row['task_title'].'</p> <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a></div>';
                     }
                 }
             ?>
@@ -43,7 +49,7 @@
 
                 if ($resultCheck > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<p>'.$row['task_title'].'</p>';
+                        echo '<div class=task><p>'.$row['task_title'].'</p> <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a></div>';
                     }
                 }
             ?>
@@ -59,7 +65,7 @@
 
                 if ($resultCheck > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<p>'.$row['task_title'].'</p>';
+                        echo '<div class=task><p>'.$row['task_title'].'</p> <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a></div>';
                     }
                 }
             ?>
@@ -75,7 +81,7 @@
 
                 if ($resultCheck > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<p>'.$row['task_title'].'</p>';
+                        echo '<div class=task><p>'.$row['task_title'].'</p> <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a></div>';
                     }
                 }
             ?>

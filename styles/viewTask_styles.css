@@ -54,3 +54,15 @@
     justify-content: space-evenly;
 }
 
+.task a {
+    text-decoration: none;
+    padding: 3px;
+    color: #000;
+    border: 2px solid #000
+}
+
+.task a:hover{
+    color: red;
+    border: 2px solid red;
+}
+

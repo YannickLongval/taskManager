@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="viewTask_styles.css">
-    <title>View Task</title>
+    <link rel="stylesheet" href="styles/viewTask_styles.css">
+    <title>View Tasks</title>
 </head>
 <body>
 
@@ -33,7 +33,8 @@
 
                 if ($resultCheck > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div class=task><p>'.$row['task_title'].'</p> 
+                        echo '<div class=task>
+                                <a href="inspectTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">'.$row['task_title'].'</a> 
                                 <div class="options">
                                     <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a>
                                     <a href="editTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'&task_title='.$row['task_title'].'&is_important='.$row['is_important'].'&is_urgent='.$row['is_urgent'].'">EDIT</a>
@@ -54,7 +55,8 @@
 
                 if ($resultCheck > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div class=task><p>'.$row['task_title'].'</p> 
+                        echo '<div class=task>
+                                <a href="inspectTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">'.$row['task_title'].'</a>  
                                 <div class="options">
                                     <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a>
                                     <a href="editTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'&task_title='.$row['task_title'].'&is_important='.$row['is_important'].'&is_urgent='.$row['is_urgent'].'">EDIT</a>
@@ -75,7 +77,8 @@
 
                 if ($resultCheck > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div class=task><p>'.$row['task_title'].'</p> 
+                        echo '<div class=task>
+                                <a href="inspectTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">'.$row['task_title'].'</a> 
                                 <div class="options">
                                     <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a>
                                     <a href="editTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'&task_title='.$row['task_title'].'&is_important='.$row['is_important'].'&is_urgent='.$row['is_urgent'].'">EDIT</a>
@@ -96,7 +99,8 @@
 
                 if ($resultCheck > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div class=task><p>'.$row['task_title'].'</p> 
+                        echo '<div class=task>
+                                <a href="inspectTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">'.$row['task_title'].'</a> 
                                 <div class="options">
                                     <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a>
                                     <a href="editTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'&task_title='.$row['task_title'].'&is_important='.$row['is_important'].'&is_urgent='.$row['is_urgent'].'">EDIT</a>

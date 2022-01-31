@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="form_styles.css">
+    <link rel="stylesheet" href="styles/form_styles.css">
     <title>Add Task</title>
 </head>
 <body>
@@ -24,10 +24,6 @@
                 <p>Task name: </p>
                 <input type="text" name="task_title" placeholder="Enter name of task">
             </div>
-            <!-- <div class="textbox">
-                <p>Task description: </p>
-                <input type="text" name="pwd" placeholder="Enter task description">
-            </div> -->
             <div class="textbox">
                 <p>Important task? </p>
                 <div class="rad-container">

@@ -1,5 +1,8 @@
 <?php
     echo '<link rel="stylesheet" href="styles/header_styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lora&family=Montserrat&display=swap" rel="stylesheet">
         <nav class="navbar">
             <div class="inner_nav">
                 <!-- <img src="YL_Website.png" alt="LOGO"> -->

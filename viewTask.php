@@ -22,94 +22,96 @@
         ?>
             <button type="submit" class="add"><p class="plus">+</p></button>
         </form>
-        
-        <div class="task-section">
-            <h2>IMPORTANT AND<br>URGENT</h2>
-            <?php
-                $user_id = mysqli_query($conn, "SELECT user_id FROM users WHERE user_email='".$_GET['email']."'");
-                $user = mysqli_fetch_array($user_id);
-                $result = mysqli_query($conn, "SELECT * FROM tasks WHERE user_id='".$user['user_id']."' AND is_important='Y' AND is_urgent='Y'");
-                $resultCheck = mysqli_num_rows($result);
 
-                if ($resultCheck > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div class=task>
-                                <a href="inspectTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">'.$row['task_title'].'</a> 
-                                <div class="options">
-                                    <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a>
-                                    <a href="editTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'&task_title='.$row['task_title'].'&is_important='.$row['is_important'].'&is_urgent='.$row['is_urgent'].'">EDIT</a>
-                                </div>
-                            </div>';
-                    }
-                }
-            ?>
-        </div>
-        <div class="vl"></div>
-        <div class="task-section">
-            <h2>IMPORTANT AND<br>NOT URGENT</h2>
-            <?php
-                $user_id = mysqli_query($conn, "SELECT user_id FROM users WHERE user_email='".$_GET['email']."'");
-                $user = mysqli_fetch_array($user_id);
-                $result = mysqli_query($conn, "SELECT * FROM tasks WHERE user_id='".$user['user_id']."' AND is_important='Y' AND is_urgent='N'");
-                $resultCheck = mysqli_num_rows($result);
+        <table>
+            <tr class="table_header">
+                <th class="table_col"></th>
+                <th>IMPORTANT</th>
+                <th>NOT IMPORTANT</th>
+            </tr>
+            <tr>
+                <th class="table_col">URGENT</th>
+                <td>
+                    <div class="task-section">
+                        <?php
+                            $user_id = mysqli_query($conn, "SELECT user_id FROM users WHERE user_email='".$_GET['email']."'");
+                            $user = mysqli_fetch_array($user_id);
+                            $result = mysqli_query($conn, "SELECT * FROM tasks WHERE user_id='".$user['user_id']."' AND is_important='Y' AND is_urgent='Y'");
+                            $resultCheck = mysqli_num_rows($result);
 
-                if ($resultCheck > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div class=task>
-                                <a href="inspectTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">'.$row['task_title'].'</a>  
-                                <div class="options">
-                                    <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a>
-                                    <a href="editTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'&task_title='.$row['task_title'].'&is_important='.$row['is_important'].'&is_urgent='.$row['is_urgent'].'">EDIT</a>
-                                </div>
-                            </div>';
-                    }
-                }
-            ?>
-        </div>
-        <div class="vl"></div>
-        <div class="task-section">
-            <h2>NOT IMPORTANT<br>AND URGENT</h2>
-            <?php
-                $user_id = mysqli_query($conn, "SELECT user_id FROM users WHERE user_email='".$_GET['email']."'");
-                $user = mysqli_fetch_array($user_id);
-                $result = mysqli_query($conn, "SELECT * FROM tasks WHERE user_id='".$user['user_id']."' AND is_important='N' AND is_urgent='Y'");
-                $resultCheck = mysqli_num_rows($result);
+                            if ($resultCheck > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo '<div class=task>
+                                            <a class=title href="inspectTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">'.$row['task_title'].'</a> 
+                                            <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">X</a>
+                                        </div>';
+                                }
+                            }
+                        ?>
+                    </div>
+                </td>
+                <td>
+                    <div class="task-section">
+                        <?php
+                            $user_id = mysqli_query($conn, "SELECT user_id FROM users WHERE user_email='".$_GET['email']."'");
+                            $user = mysqli_fetch_array($user_id);
+                            $result = mysqli_query($conn, "SELECT * FROM tasks WHERE user_id='".$user['user_id']."' AND is_important='N' AND is_urgent='Y'");
+                            $resultCheck = mysqli_num_rows($result);
 
-                if ($resultCheck > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div class=task>
-                                <a href="inspectTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">'.$row['task_title'].'</a> 
-                                <div class="options">
-                                    <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a>
-                                    <a href="editTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'&task_title='.$row['task_title'].'&is_important='.$row['is_important'].'&is_urgent='.$row['is_urgent'].'">EDIT</a>
-                                </div>
-                            </div>';
-                    }
-                }
-            ?>
-        </div>
-        <div class="vl"></div>
-        <div class="task-section">
-            <h2>NOT IMPORTANT<br>OR URGENT</h2>
-            <?php
-                $user_id = mysqli_query($conn, "SELECT user_id FROM users WHERE user_email='".$_GET['email']."'");
-                $user = mysqli_fetch_array($user_id);
-                $result = mysqli_query($conn, "SELECT * FROM tasks WHERE user_id='".$user['user_id']."' AND is_important='N' AND is_urgent='N'");
-                $resultCheck = mysqli_num_rows($result);
+                            if ($resultCheck > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo '<div class=task>
+                                            <a class=title href="inspectTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">'.$row['task_title'].'</a> 
+                                            <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">X</a>
+                                        </div>';
+                                }
+                            }
+                        ?>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th class="table_col">NOT URGENT</th>
+                <td>
+                    <div class="task-section">
+                        <?php
+                            $user_id = mysqli_query($conn, "SELECT user_id FROM users WHERE user_email='".$_GET['email']."'");
+                            $user = mysqli_fetch_array($user_id);
+                            $result = mysqli_query($conn, "SELECT * FROM tasks WHERE user_id='".$user['user_id']."' AND is_important='Y' AND is_urgent='N'");
+                            $resultCheck = mysqli_num_rows($result);
 
-                if ($resultCheck > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div class=task>
-                                <a href="inspectTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">'.$row['task_title'].'</a> 
-                                <div class="options">
-                                    <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">DELETE</a>
-                                    <a href="editTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'&task_title='.$row['task_title'].'&is_important='.$row['is_important'].'&is_urgent='.$row['is_urgent'].'">EDIT</a>
-                                </div>
-                            </div>';
-                    }
-                }
-            ?>
-        </div>
+                            if ($resultCheck > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo '<div class=task>
+                                            <a class=title href="inspectTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">'.$row['task_title'].'</a> 
+                                            <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">X</a>
+                                        </div>';
+                                }
+                            }
+                        ?>
+                    </div>
+                </td>
+                <td>
+                    <div class="task-section">
+                        <?php
+                            $user_id = mysqli_query($conn, "SELECT user_id FROM users WHERE user_email='".$_GET['email']."'");
+                            $user = mysqli_fetch_array($user_id);
+                            $result = mysqli_query($conn, "SELECT * FROM tasks WHERE user_id='".$user['user_id']."' AND is_important='N' AND is_urgent='N'");
+                            $resultCheck = mysqli_num_rows($result);
+
+                            if ($resultCheck > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo '<div class=task>
+                                            <a class=title href="inspectTask.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">'.$row['task_title'].'</a> 
+                                            <a href="includes/delete.inc.php?loggedin=success&email='.$_GET['email'].'&task_id='.$row['task_id'].'">X</a>
+                                        </div>';
+                                }
+                            }
+                        ?>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
     
 </body>

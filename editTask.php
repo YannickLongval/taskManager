@@ -73,10 +73,6 @@
             }
             
         ?>
-            <!-- <div class="textbox">
-                <p>Task description: </p>
-                <input type="text" name="pwd" placeholder="Enter task description">
-            </div> -->
 
             <button type="submit" name="submit">Edit Task</button>
         </form>

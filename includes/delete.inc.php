@@ -19,6 +19,6 @@
         mysqli_stmt_execute($stmt);
         // $result = mysqli_stmt_get_result($stmt);
     }
-    header("Location: ../viewTask.php?loggedin=success&email=$email&task_id=$task_id");
+    header("Location: ../viewTask.php?loggedin=success&email=$email");
 
 

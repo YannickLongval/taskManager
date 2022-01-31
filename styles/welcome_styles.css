@@ -1,6 +1,11 @@
+body {
+    height: 100vh;
+}
+
 .container {
     margin: 0;
     width: 100%;
+    height: 90vh;
 }
 
 .container-wrapper {
@@ -11,6 +16,8 @@
     flex-direction: column;
     align-items: center;
     font-size: 40px;
+    background-color: #ffffff;
+    box-shadow: 2px;
 }
 
 .content {

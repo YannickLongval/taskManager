@@ -13,6 +13,8 @@
 </head>
 <body>
     <?php   
+        include_once 'includes/header.inc.php';
+        
         $result = mysqli_query($conn, "SELECT * FROM tasks WHERE task_id='".$_GET['task_id']."'");
         $resultCheck = mysqli_num_rows($result);
 
